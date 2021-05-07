@@ -1,11 +1,23 @@
 package SprAnn;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class DirectorFinanciero implements Empleados {
 	
 	public DirectorFinanciero(CreacionInformeFinanciero informeFinanciero){
 		
 		this.informeFinanciero = informeFinanciero;
 		
+	}
+	
+	public String getEmail(){
+		
+		return this.email;
+	}
+	
+	public String getnombreEmpresa(){
+		
+		return nombreEmpresa;
 	}
 
 	@Override
@@ -23,5 +35,10 @@ public class DirectorFinanciero implements Empleados {
 	
 	
 	private CreacionInformeFinanciero informeFinanciero;
+	@Value("${email}")	
+	private String email;
+	
+	@Value("${nombreEmpresa}")
+	private String nombreEmpresa;
 
 }
